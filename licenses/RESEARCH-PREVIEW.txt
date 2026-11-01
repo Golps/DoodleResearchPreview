@@ -1,0 +1,8 @@
+Doodle Research Preview License
+Copyright (c) 2026 Doodle Research Preview contributors
+
+Permission is granted to use, copy, and redistribute this project's own compiled interface and accompanying documentation solely for non-commercial scientific research, experimentation, analysis, and academic evaluation. Copies must retain this license. Commercial exploitation, product development, and use in a commercial product or service are not permitted under this license. No trademark or endorsement rights are granted.
+
+This license covers only material owned by the project contributors. Apple models and adapted model artifacts remain subject to the Apple Machine Learning Research Model License Agreement. Other software and data remain subject to their respective licenses, which are supplied separately and are not replaced or restricted by this notice.
+
+THE PROJECT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE CONTRIBUTORS ARE NOT LIABLE FOR CLAIMS OR DAMAGES ARISING FROM USE OF THE PROJECT.

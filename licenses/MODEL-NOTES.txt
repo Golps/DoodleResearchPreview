@@ -1,0 +1,19 @@
+Apple MobileCLIP2 research artifacts
+
+Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement.
+The complete, controlling model terms are in Apple-AMLR.txt. Use is limited to the research purposes permitted by that agreement.
+
+This preview runs five distinct Apple MobileCLIP2 image encoders: S0, S2, B, S3 and S4. They are not the Apple Foundation Models framework. Original checkpoints: https://huggingface.co/apple (MobileCLIP2 model collection).
+
+Modified representations: image encoder weights are stored as per-channel INT8 where supported, dequantized for FP32 computation in ONNX Runtime. Exporter metadata containing workstation paths has been removed; executable graph/tensor digests were verified unchanged by that cleanup. The encoder architecture and frozen trained parameters are retained; quantization changes their numerical representation and can affect outputs. There is no claim of equivalence to Apple's published evaluation results. The browser vocabulary uses normalized representations generated from each matching text encoder, compressed for storage and matching.
+
+The optional S0 sketch assist is a project-fitted regularized readout of frozen Apple S0 image features. It is derived from 2,760 adapted Google Quick, Draw! examples (CC BY 4.0). It is active in Rounds by default and can be disabled in Testing for a comparison without assistance. Other encoders use image/text matching. Similarity scores are not probabilities.
+
+ONNX conversion sources (Hugging Face):
+S0: RuteNL/MobileCLIP2-S0-OpenCLIP-ONNX at 2a4361b87cd76f8493625cc31f36031ee9d52110
+S2: RuteNL/MobileCLIP2-S2-OpenCLIP-ONNX at 5ee5cc157edb6159c20e8d72b14a1a59feea3310
+B: RuteNL/MobileCLIP2-B-OpenCLIP-ONNX at d5a9f44069059ac09a859bd796511103b29f23cd
+S3: RuteNL/MobileCLIP2-S3-OpenCLIP-ONNX at 0280dd9223184c27f1d1c88c44ce652cf5f2063a
+S4: RuteNL/MobileCLIP2-S4-OpenCLIP-ONNX at 3fe2578650ee554ca2d066d97da997ae1ff20782
+
+Model conversions do not replace or relax Apple's license. This is an independent project without Apple endorsement.

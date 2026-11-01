@@ -1,0 +1,9 @@
+# Models, software and data notices
+
+Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement. The full agreement is included as `licenses/Apple-AMLR.txt`; it restricts use to qualifying non-commercial scientific research and excludes product development. Model representations and matching text embeddings have been adapted for browser inference. See `licenses/MODEL-NOTES.txt` for the changes and conversion provenance.
+
+This browser research preview uses React and React DOM (Meta), Motion (Motion B.V.), Tabler icons, perfect-freehand, clsx, tailwind-merge, Tailwind CSS and ONNX Runtime Web (Microsoft), with their respective licenses. Full software notices, including the runtime's bundled third-party notices, are provided in `licenses/software/`. ONNX Runtime Web is pinned to version 1.22.0.
+
+Vocabulary and sketch assistance use categories or derived materials from Google Quick, Draw!, Open Images and WordNet/ImageNet category lemmas. Google Quick, Draw! is licensed under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ . Source: https://quickdraw.withgoogle.com/data . Adaptations: stroke normalization, selected categories, frozen image features, and a regularized S0 sketch readout; the source drawings and their original account metadata are not distributed as browser assets. Open Images category information: https://storage.googleapis.com/openimages/web/index.html . WordNet 3.0: Copyright 2006 Princeton University; full terms are in `licenses/software/WordNet.txt`.
+
+The README demonstration uses a drawing authored for this project and actual local inference with S0's optional sketch assist enabled. A fixed prompt is used to make the demonstration repeatable. It is an illustrative successful round, not an accuracy or latency benchmark.
