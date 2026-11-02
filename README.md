@@ -40,7 +40,7 @@ Address options:
 - `?all=1` loads all models even after crashes switched this tab to one model at a time.
 - `?single=1` loads one model at a time; switch by tapping a model card.
 - `?mem=1` shows a live readout of the memory the models use.
-- `?cpu=s3,s4` runs the listed models on the processor.
+- `?cpu=s3,s4` runs the listed models on the processor. Phones run B on the processor by default, because Safari crashed during B's graphics-chip guesses; `?cpu=none` puts it back.
 
 [`probe.html`](https://golps.github.io/DoodleResearchPreview/probe.html) measures how much graphics memory the browser lets one page use. It fills memory in steps until the browser stops it. Reopen it afterwards to see the number.
 
