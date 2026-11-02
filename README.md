@@ -35,6 +35,7 @@ On phones and tablets, **S0 loads first** so you can start drawing right away, a
 
 Address options:
 - `?ask=1` loads only S0 on a phone until you tap another bot.
+- `?all=1` loads all five even after crashes switched this tab to one model at a time.
 - `?single=1` loads one model at a time; switch by tapping a model card.
 - `?mem=1` shows a live readout of the memory the models use.
 - `?s4gpu=1` keeps every model on the graphics chip on a phone.
