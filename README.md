@@ -31,19 +31,11 @@ The research questions are practical: How do models respond to incomplete shapes
 4. A matching guess highlights the answer and ends the round immediately. Choose **Next** to continue.
 5. Open **Settings → Testing** to compare model results against a captured drawing. The image and its ranked matches are kept together. Use the S0 sketch-assist switch for a comparison without that additional readout.
 
-On phones and tablets, **S0 loads first** so you can start drawing right away. Tap any other bot to add the remaining four models. That downloads about 480 MB more, so use Wi‑Fi. The choice is remembered on that device. On phones, S4 runs on the processor instead of the graphics chip. That splits memory across Safari's two limits, and S4 answers a little more slowly without holding up the other bots. A small service worker turns on cross-origin isolation so S4 can use several processor cores. This costs one extra page load on the first visit. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
+On phones and tablets, **S0 loads first** so you can start drawing right away. Tap any other bot to add the remaining four models. That downloads about 480 MB more, so use Wi‑Fi. The choice is remembered on that device. On a computer, all five load in order and the next model downloads in the background while the current one prepares.
 
-Address options:
-- `?all=1` loads all five on a phone without asking.
-- `?single=1` loads one model at a time; switch by tapping a model card.
-- `?mem=1` shows a live readout of the memory the models use.
-- `?s4gpu=1` keeps S4 on the graphics chip on a phone.
-- `?cpu=s3,s4` runs the listed models on the processor.
-- `?nothreads=1` keeps processor models on one core.
+Address options: `?all=1` loads all five on a phone without asking, `?single=1` loads one model at a time (switch by tapping a model card), and `?mem=1` shows a live readout of the memory the models use.
 
-If Safari resets graphics memory, the bots restart from the on-device copy and the largest active bot pauses. Your drawing is redrawn. If the whole page reloads while models are loading, the next visit in that tab skips S4 (tap it to try anyway). After a second reload, it switches to one model at a time.
-
-Bots don't repeat a word within a round. If you pause for about two seconds, each bot may offer up to two runner-up words that scored close to its first pick.
+If the page reloads while models are loading, the next visit in that tab skips S4 (tap it to try anyway). After a second reload it switches to one model at a time.
 
 ## Five views of the same sketch
 
@@ -71,7 +63,7 @@ This preview supports exploration of sketch-based retrieval, interactive learnin
 
 ## Practical limits
 
-- **Memory:** Model weights stay in 8-bit form while running, so all five models use roughly 0.7 to 0.9 GB. On phones, about 350 MB of that is graphics memory and the rest is S4 on the processor, compared with several gigabytes in earlier builds. Safari may still reload the page on devices with little free memory. Releasing a model session does not guarantee the browser immediately returns all memory to the operating system.
+- **Memory:** Model weights stay in 8-bit form while running, so all five models use roughly 0.7 to 1.5 GB depending on the browser path, compared with several gigabytes in earlier builds. Safari may still reload the page on devices with little free memory. Releasing a model session does not guarantee the browser immediately returns all memory to the operating system.
 - **Loading:** Model and vocabulary files are large. A first visit may take time, particularly on a slow connection. Files are cached when browser storage allows; storage can be evicted or unavailable.
 - **Browser support:** Development focuses on Macs, iPhones, and iPads. WebGPU is preferred when compatible; WebAssembly is the fallback. Feature support, latency, and stability vary by browser and device. Mobile browser emulation is not proof of physical-device reliability.
 - **Recognition:** Unfinished drawings, unusual concepts, handwriting, abstraction, and ambiguous shapes can produce incorrect guesses. Recognition is limited to the prepared vocabulary and alias groups.
