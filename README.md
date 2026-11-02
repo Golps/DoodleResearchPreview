@@ -31,13 +31,13 @@ The research questions are practical: How do models respond to incomplete shapes
 4. A matching guess highlights the answer and ends the round immediately. Choose **Next** to continue.
 5. Open **Settings → Testing** to compare model results against a captured drawing. The image and its ranked matches are kept together. Use the S0 sketch-assist switch for a comparison without that additional readout.
 
-On phones and tablets, **S0 loads first** so you can start drawing right away, and the other four follow on their own. The first visit downloads about 480 MB more, so use Wi‑Fi. On phones, S3 and S4 run on the processor instead of the graphics chip. That splits memory across Safari's two limits, and those two answer a little more slowly without holding up the other bots. Graphics models also release their scratch memory after every guess, and the drawing pad never uses the graphics chip, so a graphics reset can't wipe your strokes. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
+On phones and tablets, **S0 loads first** so you can start drawing right away, and the other four follow on their own. The first visit downloads about 480 MB more, so use Wi‑Fi. All five run on the graphics chip. They release their scratch memory after every guess, so graphics memory stays close to the size of the models, and the drawing pad never uses the graphics chip, so a graphics reset can't wipe your strokes. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
 
 Address options:
 - `?ask=1` loads only S0 on a phone until you tap another bot.
+- `?all=1` loads all five even after crashes switched this tab to one model at a time.
 - `?single=1` loads one model at a time; switch by tapping a model card.
 - `?mem=1` shows a live readout of the memory the models use.
-- `?s4gpu=1` keeps every model on the graphics chip on a phone.
 - `?cpu=s3,s4` runs the listed models on the processor.
 
 If Safari resets graphics memory, the bots restart from the on-device copy and the largest active bot pauses. Your drawing is redrawn. If the whole page reloads while models are loading, the next visit in that tab skips S4 (tap it to try anyway). After a second reload, it switches to one model at a time.
@@ -70,7 +70,7 @@ This preview supports exploration of sketch-based retrieval, interactive learnin
 
 ## Practical limits
 
-- **Memory:** Model weights stay in 8-bit form while running, so all five models use roughly 0.7 to 0.9 GB. On phones, most of it is S3 and S4 on the processor and the rest is graphics memory, compared with several gigabytes in earlier builds. Safari may still reload the page on devices with little free memory. Releasing a model session does not guarantee the browser immediately returns all memory to the operating system.
+- **Memory:** Model weights stay in 8-bit form while running, so all five models use roughly 0.7 to 0.9 GB. Nearly all of it is graphics memory, compared with several gigabytes in earlier builds. Safari may still reload the page on devices with little free memory. Releasing a model session does not guarantee the browser immediately returns all memory to the operating system.
 - **Loading:** Model and vocabulary files are large. A first visit may take time, particularly on a slow connection. Files are cached when browser storage allows; storage can be evicted or unavailable.
 - **Browser support:** Development focuses on Macs, iPhones, and iPads. WebGPU is preferred when compatible; WebAssembly is the fallback. Feature support, latency, and stability vary by browser and device. Mobile browser emulation is not proof of physical-device reliability.
 - **Recognition:** Unfinished drawings, unusual concepts, handwriting, abstraction, and ambiguous shapes can produce incorrect guesses. Recognition is limited to the prepared vocabulary and alias groups.
