@@ -42,8 +42,6 @@ Address options:
 
 If Safari resets graphics memory, the bots restart from the on-device copy and the largest active bot pauses. Your drawing is redrawn. If the whole page reloads while models are loading, the next visit in that tab skips S4 (tap it to try anyway). After a second reload, it switches to one model at a time.
 
-On phones, the five bots sit in a strip under the canvas. What each bot is thinking or saying appears in a bubble just above it, in space kept free so it never covers your drawing. Tap a bot to open its full card.
-
 Bots don't repeat a word within a round. If you pause for about two seconds, each bot may offer up to two runner-up words that scored close to its first pick.
 
 ## Five views of the same sketch
