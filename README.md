@@ -31,17 +31,18 @@ The research questions are practical: How do models respond to incomplete shapes
 4. A matching guess highlights the answer and ends the round immediately. Choose **Next** to continue.
 5. Open **Settings → Testing** to compare model results against a captured drawing. The image and its ranked matches are kept together. Use the S0 sketch-assist switch for a comparison without that additional readout.
 
-On phones and tablets, **S0 loads first** so you can start drawing right away. Tap any other bot to add the remaining four models. That downloads about 480 MB more, so use Wi‑Fi. The choice is remembered on that device. On phones, S4 runs on the processor instead of the graphics chip. That splits memory across Safari's two limits, and S4 answers a little more slowly without holding up the other bots. A small service worker turns on cross-origin isolation so S4 can use several processor cores. This costs one extra page load on the first visit. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
+On phones and tablets, **S0 loads first** so you can start drawing right away, and the other four follow on their own. The first visit downloads about 480 MB more, so use Wi‑Fi. On phones, S4 runs on the processor instead of the graphics chip. That splits memory across Safari's two limits, and S4 answers a little more slowly without holding up the other bots. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
 
 Address options:
-- `?all=1` loads all five on a phone without asking.
+- `?ask=1` loads only S0 on a phone until you tap another bot.
 - `?single=1` loads one model at a time; switch by tapping a model card.
 - `?mem=1` shows a live readout of the memory the models use.
 - `?s4gpu=1` keeps S4 on the graphics chip on a phone.
 - `?cpu=s3,s4` runs the listed models on the processor.
-- `?nothreads=1` keeps processor models on one core.
 
 If Safari resets graphics memory, the bots restart from the on-device copy and the largest active bot pauses. Your drawing is redrawn. If the whole page reloads while models are loading, the next visit in that tab skips S4 (tap it to try anyway). After a second reload, it switches to one model at a time.
+
+On phones, the five bots sit in a strip under the canvas. What each bot is thinking or saying appears in a bubble just above it, in space kept free so it never covers your drawing. Tap a bot to open its full card.
 
 Bots don't repeat a word within a round. If you pause for about two seconds, each bot may offer up to two runner-up words that scored close to its first pick.
 
