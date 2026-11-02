@@ -31,7 +31,11 @@ The research questions are practical: How do models respond to incomplete shapes
 4. A matching guess highlights the answer and ends the round immediately. Choose **Next** to continue.
 5. Open **Settings → Testing** to compare model results against a captured drawing. The image and its ranked matches are kept together. Use the S0 sketch-assist switch for a comparison without that additional readout.
 
-On mobile, **S0 loads first and one model runs at a time**. Tap another available model card to switch; the previous session is released before its replacement loads. S4 is currently desktop-only.
+On phones and tablets, **S0 loads first** so you can start drawing right away. Tap any other bot to add the remaining four models. That downloads about 480 MB more, so use Wi‑Fi. The choice is remembered on that device. On a computer, all five load in order and the next model downloads in the background while the current one prepares.
+
+Address options: `?all=1` loads all five on a phone without asking, `?single=1` loads one model at a time (switch by tapping a model card), and `?mem=1` shows a live readout of the memory the models use.
+
+If the page reloads while models are loading, the next visit in that tab skips S4 (tap it to try anyway). After a second reload it switches to one model at a time.
 
 ## Five views of the same sketch
 
@@ -59,7 +63,7 @@ This preview supports exploration of sketch-based retrieval, interactive learnin
 
 ## Practical limits
 
-- **Memory:** Larger models can require substantially more RAM than their file sizes suggest. Several desktop models can occupy multiple gigabytes. Safari may reload the page when memory is exhausted. Releasing a model session does not guarantee the browser immediately returns all memory to the operating system.
+- **Memory:** Model weights stay in 8-bit form while running, so all five models use roughly 0.7 to 1.5 GB depending on the browser path, compared with several gigabytes in earlier builds. Safari may still reload the page on devices with little free memory. Releasing a model session does not guarantee the browser immediately returns all memory to the operating system.
 - **Loading:** Model and vocabulary files are large. A first visit may take time, particularly on a slow connection. Files are cached when browser storage allows; storage can be evicted or unavailable.
 - **Browser support:** Development focuses on Macs, iPhones, and iPads. WebGPU is preferred when compatible; WebAssembly is the fallback. Feature support, latency, and stability vary by browser and device. Mobile browser emulation is not proof of physical-device reliability.
 - **Recognition:** Unfinished drawings, unusual concepts, handwriting, abstraction, and ambiguous shapes can produce incorrect guesses. Recognition is limited to the prepared vocabulary and alias groups.
