@@ -40,6 +40,8 @@ Address options:
 - `?mem=1` shows a live readout of the memory the models use.
 - `?cpu=s3,s4` runs the listed models on the processor.
 
+[`probe.html`](https://golps.github.io/DoodleResearchPreview/probe.html) measures how much graphics memory the browser lets one page use. It fills memory in steps until the browser stops it. Reopen it afterwards to see the number.
+
 If Safari resets graphics memory, the bots restart from the on-device copy and the largest active bot pauses. Your drawing is redrawn. If the whole page reloads while models are loading, the next visit in that tab skips S4 (tap it to try anyway). After a second reload, it switches to one model at a time.
 
 Bots don't repeat a word within a round. If you pause for about two seconds, each bot may offer up to two runner-up words that scored close to its first pick.

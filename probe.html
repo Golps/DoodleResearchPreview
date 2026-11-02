@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doodle memory check</title>
+<style>
+:root{--bg:#111;--fg:#f2f2f2;--mute:#9a9a9a;--card:#1c1c1e;--accent:#4c8dff;--bad:#ff6b5e;--good:#46c37b}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f6f6f6;--fg:#111;--mute:#666;--card:#fff}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 -apple-system,system-ui,sans-serif}
+main{max-width:520px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:24px;margin:0 0 4px}
+p{color:var(--mute);margin:0 0 16px}
+.card{background:var(--card);border-radius:14px;padding:16px;margin:0 0 14px}
+.big{font-size:40px;font-weight:700;letter-spacing:-.02em}
+.row{display:flex;justify-content:space-between;gap:12px;color:var(--mute);font-size:14px}
+button{appearance:none;border:0;border-radius:12px;background:var(--accent);color:#fff;font:600 17px -apple-system,system-ui,sans-serif;padding:14px 18px;width:100%}
+button:disabled{opacity:.5}
+.bad{color:var(--bad)}.good{color:var(--good)}
+</style>
+</head>
+<body>
+<main>
+<h1>Memory check</h1>
+<p>Measures how much graphics memory this browser lets one page use. It fills memory in 32 MB steps until the browser stops it or it reaches 3 GB. The page may reload or close; that's expected. Then open this page again to see the result.</p>
+<div class="card" id="last" hidden></div>
+<div class="card">
+  <div class="row"><span>Filled so far</span><span id="state">Not started</span></div>
+  <div class="big" id="mb">0 MB</div>
+</div>
+<button id="go">Start the check</button>
+</main>
+<script>
+const KEY="doodle:probe",STEP=32,CAP=3072;
+const $=id=>document.getElementById(id);
+let last=null;try{last=JSON.parse(localStorage.getItem(KEY)||"null")}catch{}
+if(last){const el=$("last");el.hidden=false;
+  el.innerHTML=last.done?`<div class="row"><span>Last check</span><span class="good">Finished</span></div><div class="big">${last.mb} MB</div><p style="margin:6px 0 0">${last.note||"The browser allowed this much without stopping the page."}</p>`
+  :`<div class="row"><span>Last check</span><span class="bad">Page was stopped</span></div><div class="big">${last.mb} MB</div><p style="margin:6px 0 0">The browser stopped the page after this much graphics memory. Send a screenshot of this card.</p>`;}
+const save=o=>{try{localStorage.setItem(KEY,JSON.stringify(o))}catch{}};
+$("go").onclick=async()=>{
+  $("go").disabled=true;
+  if(!navigator.gpu){$("state").textContent="No WebGPU in this browser";return}
+  const ad=await navigator.gpu.requestAdapter();if(!ad){$("state").textContent="No graphics adapter";return}
+  const dev=await ad.requestDevice({requiredLimits:{maxBufferSize:Math.min(ad.limits.maxBufferSize,256*2**20)}});
+  let lost=false;dev.lost.then(i=>{lost=true;save({mb:cur,done:true,note:"The browser reset graphics memory at this point instead of closing the page ("+(i.message||i.reason)+")."});$("state").textContent="Graphics reset";$("state").className="bad"});
+  const bufs=[];let cur=0;$("state").textContent="Filling…";
+  while(cur<CAP&&!lost){
+    save({mb:cur,done:false,at:Date.now()});
+    dev.pushErrorScope("out-of-memory");
+    const b=dev.createBuffer({size:STEP*2**20,usage:GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_DST,mappedAtCreation:true});
+    new Uint32Array(b.getMappedRange()).fill(0x5a5a5a5a);b.unmap();
+    const err=await dev.popErrorScope();
+    if(err){save({mb:cur,done:true,note:"The browser refused more graphics memory here without closing the page."});$("state").textContent="Refused more";break}
+    bufs.push(b);cur+=STEP;$("mb").textContent=cur+" MB";
+    await dev.queue.onSubmittedWorkDone();await new Promise(r=>setTimeout(r,60));
+  }
+  if(!lost&&cur>=CAP){save({mb:cur,done:true,note:"Reached the 3 GB test limit without trouble."});$("state").textContent="Reached 3 GB";$("state").className="good"}
+  for(const b of bufs)b.destroy();
+  $("go").disabled=false;$("go").textContent="Run again";
+};
+</script>
+</body>
+</html>
