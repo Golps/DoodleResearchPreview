@@ -31,7 +31,7 @@ The research questions are practical: How do models respond to incomplete shapes
 4. A matching guess highlights the answer and ends the round immediately. Choose **Next** to continue.
 5. Open **Settings → Testing** to compare model results against a captured drawing. The image and its ranked matches are kept together. Use the S0 sketch-assist switch for a comparison without that additional readout.
 
-On phones and tablets, **S0 loads first** so you can start drawing right away, and S2, B and S3 follow on their own. S4 is desktop only: all five together need about 620 MB, which crashed iPhone Safari, and the four together need about 290 MB. The first visit downloads about 270 MB more, so use Wi‑Fi. All four run on the graphics chip. They release their scratch memory after every guess, so graphics memory stays close to the size of the models, and the drawing pad never uses the graphics chip, so a graphics reset can't wipe your strokes. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
+On phones and tablets, **S0 loads first** so you can start drawing right away, and S2, B and S3 follow on their own. S4 is desktop only: all five together need about 620 MB, which crashed iPhone Safari, and the four together need about 290 MB. The first visit downloads about 270 MB more, so use Wi‑Fi. All four run on the processor, which is a little slower but avoids Safari's graphics crashes. They release their scratch memory after every guess, so graphics memory stays close to the size of the models, and the drawing pad never uses the graphics chip, so a graphics reset can't wipe your strokes. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
 
 Address options:
 - `?ask=1` loads only S0 on a phone until you tap another bot.
@@ -40,7 +40,7 @@ Address options:
 - `?all=1` loads all models even after crashes switched this tab to one model at a time.
 - `?single=1` loads one model at a time; switch by tapping a model card.
 - `?mem=1` shows a live readout of the memory the models use.
-- `?cpu=s3,s4` runs the listed models on the processor. Phones run B on the processor by default, because Safari crashed during B's graphics-chip guesses; `?cpu=none` puts it back.
+- `?cpu=s3,s4` runs the listed models on the processor. Phones and tablets run all four of their bots on the processor by default, because Safari on iPhone kept crashing inside graphics-chip guesses; `?cpu=none` puts them back on the graphics chip.
 
 [`probe.html`](https://golps.github.io/DoodleResearchPreview/probe.html) measures how much graphics memory the browser lets one page use. It fills memory in steps until the browser stops it. Reopen it afterwards to see the number.
 
