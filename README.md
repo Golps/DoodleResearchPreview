@@ -59,7 +59,7 @@ Bots don't repeat a word within a round. If you pause for about two seconds, eac
 
 These are **MobileCLIP2 image–text models**, not Apple’s Foundation Models framework. Bigger does not guarantee a better result on an individual doodle.
 
-The current word bank contains **12,000 recognition concepts**, **7,475 configured aliases**, and **231 familiar round prompts**. The models rank this prepared vocabulary. They do not generate unrestricted descriptions, and adding a word does not guarantee it will be recognized reliably.
+The current word bank contains **14,507 recognition concepts**, **8,909 configured aliases**, and **231 familiar round prompts**. The models rank this prepared vocabulary. They do not generate unrestricted descriptions, and adding a word does not guarantee it will be recognized reliably.
 
 ![The current desktop interface after a real successful recognition.](media/recognition.png)
 
