@@ -1,4 +1,4 @@
-import"/DoodleResearchPreview/assets/memhook-q8test.js?v=ff12f5578c";
+import"/DoodleResearchPreview/assets/memhook-q8test.js?v=2c7b65be54";
 import*as ort from"/DoodleResearchPreview/runtime/ort-1.31.1/ort.webgpu.bundle.min.mjs";
 // ONNX Runtime Web 1.31.1, 8-bit MatMulNBits models with external weight files, arena/mem-pattern off,
 // runtime wasm in two parts, compressed part caching, next-model prefetch, stale cache cleanup, memory readout.
