@@ -31,11 +31,12 @@ The research questions are practical: How do models respond to incomplete shapes
 4. A matching guess highlights the answer and ends the round immediately. Choose **Next** to continue.
 5. Open **Settings → Testing** to compare model results against a captured drawing. The image and its ranked matches are kept together. Use the S0 sketch-assist switch for a comparison without that additional readout.
 
-On phones and tablets, **S0 loads first** so you can start drawing right away, and the other four follow on their own. The first visit downloads about 480 MB more, so use Wi‑Fi. All five run on the graphics chip. They release their scratch memory after every guess, so graphics memory stays close to the size of the models, and the drawing pad never uses the graphics chip, so a graphics reset can't wipe your strokes. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
+On phones and tablets, **S0 loads first** so you can start drawing right away, and S2, B and S3 follow on their own. S4 is desktop only: all five together need about 620 MB, which crashed iPhone Safari, and the four together need about 290 MB. The first visit downloads about 270 MB more, so use Wi‑Fi. All four run on the graphics chip. They release their scratch memory after every guess, so graphics memory stays close to the size of the models, and the drawing pad never uses the graphics chip, so a graphics reset can't wipe your strokes. On a computer, all five run on the graphics chip and load in order. The next model downloads in the background while the current one prepares.
 
 Address options:
 - `?ask=1` loads only S0 on a phone until you tap another bot.
-- `?all=1` loads all five even after crashes switched this tab to one model at a time.
+- `?s4=1` brings S4 back on a phone or tablet, for testing only.
+- `?all=1` loads all models even after crashes switched this tab to one model at a time.
 - `?single=1` loads one model at a time; switch by tapping a model card.
 - `?mem=1` shows a live readout of the memory the models use.
 - `?cpu=s3,s4` runs the listed models on the processor.
