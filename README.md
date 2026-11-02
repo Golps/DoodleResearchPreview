@@ -36,6 +36,7 @@ On phones and tablets, **S0 loads first** so you can start drawing right away, a
 Address options:
 - `?ask=1` loads only S0 on a phone until you tap another bot.
 - `?s4=1` brings S4 back on a phone or tablet, for testing only.
+- `?recycle=N` sets how many guesses pass before the bots restart between rounds (phones default to 120). Safari on iPhone crashes after a few hundred graphics guesses in one worker, so the app restarts the worker at the next round and the models reload from the on-device copy.
 - `?all=1` loads all models even after crashes switched this tab to one model at a time.
 - `?single=1` loads one model at a time; switch by tapping a model card.
 - `?mem=1` shows a live readout of the memory the models use.
