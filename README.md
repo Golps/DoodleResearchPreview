@@ -11,9 +11,9 @@ Compare five models with recognition running locally in your browser.
 
 </div>
 
-![An actual drawing round: S0 recognizes a house as the outline takes shape.](media/drawing.gif)
+![A real round on desktop: with all five models loaded, a guitar is drawn stroke by stroke. The bots disagree along the way, with guesses like hockey stick, fork, nail, spoon, tennis racquet, snowman and frying pan, until S3 recognizes the guitar.](media/demo.webp)
 
-*An illustrative successful round with a fixed prompt and actual local inference. S0’s optional sketch assist is enabled. This is not an accuracy or speed benchmark.*
+*A real round in Rounds mode, with all five models loaded before the first stroke and actual local inference, shown at 60 fps. The recording machine was slower than a typical desktop, so the clip is time-compressed to show guesses at roughly desktop pace. This is not an accuracy or speed benchmark.*
 
 ## A canvas for research
 
