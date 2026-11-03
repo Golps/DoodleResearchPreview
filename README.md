@@ -11,7 +11,7 @@ Compare five models with recognition running locally in your browser.
 
 </div>
 
-![A real round on desktop: with all five models loaded, a bicycle is drawn stroke by stroke. The bots guess boomerang, then circle, until S4 recognizes the bicycle.](media/demo.webp)
+![A real round on desktop: with all five models loaded, a guitar is drawn stroke by stroke. The bots disagree along the way, with guesses like hockey stick, fork, nail, spoon, tennis racquet, snowman and frying pan, until S3 recognizes the guitar.](media/demo.webp)
 
 *A real round in Rounds mode, with all five models loaded before the first stroke and actual local inference, shown at 60 fps. The recording machine was slower than a typical desktop, so the clip is time-compressed to show guesses at roughly desktop pace. This is not an accuracy or speed benchmark.*
 
