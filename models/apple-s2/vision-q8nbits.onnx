@@ -1,2 +1,2 @@
 DOODLE-ASSET-PARTS
-{"bytes":1359909,"sha256":"80c8f94ca9e0fc0b8acdc89411bf7e04f2b9354325a90dc42e9043e893d89efb","parts":[{"url":"./vision-q8nbits.onnx.parts/80c8f94ca9e0-000.gz","bytes":1359909,"transferBytes":133436,"encoding":"gzip"}]}
+{"bytes":6585018,"sha256":"d82877a6b8be522dc6d66d2804c37bc503a25a71bc53b49b01a11b1e22cc25b0","parts":[{"url":"./vision-q8nbits.onnx.parts/d82877a6b8be-000.gz","bytes":6585018,"transferBytes":2714233,"encoding":"gzip"}]}
