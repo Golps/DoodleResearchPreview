@@ -38,7 +38,7 @@ What makes it a useful test bed for Apple's models:
 4. A matching guess highlights the answer and ends the round immediately. Choose **Next** to continue.
 5. Open **Settings → Testing** to compare model results against a captured drawing. The image and its ranked matches are kept together. Use the S0 sketch-assist switch for a comparison without that additional readout.
 
-On phones and tablets, **S0 loads first** so you can start drawing right away, and S2, B and S3 follow on their own. The first visit downloads about 270 MB, so use Wi‑Fi. S4 is left out on phones and tablets, and the other four run on the phone's processor rather than its graphics chip. See [Why phones work differently](#why-phones-work-differently). On a computer, all five run on the graphics chip and load in order, and the next model downloads in the background while the current one gets ready.
+On phones and tablets, **S0 loads first** so you can start drawing right away, and S2, B and S3 follow on their own. The first visit downloads about 280 MB, so use Wi‑Fi. S4 is left out on phones and tablets, and the other four run on the phone's processor rather than its graphics chip. See [Why phones work differently](#why-phones-work-differently). On a computer, all five run on the graphics chip and load in order, and the next model downloads in the background while the current one gets ready.
 
 Address options, mostly for testing:
 - `?all=1` loads every model even if earlier crashes switched this tab to one model at a time.
@@ -47,6 +47,7 @@ Address options, mostly for testing:
 - `?mem=1` shows how much memory the models use. After a crash, it also shows what the page was doing when it stopped.
 - `?cpu=none` puts a phone's bots back on the graphics chip, and `?cpu=s3,s4` moves the listed models to the processor on a computer.
 - `?s4=1` brings S4 back on a phone or tablet, for testing only.
+- `?lanes=0` runs a phone's four bots one after another in a single background worker instead of two.
 - `?recycle=N` sets how many guesses pass before the bots restart between rounds (phones default to 120).
 - [`probe.html`](https://golps.github.io/DoodleResearchPreview/probe.html) measures how much graphics memory the browser allows one page.
 
@@ -82,10 +83,10 @@ This preview supports exploration of sketch-based retrieval, interactive learnin
 
 ## Practical limits
 
-- **Memory:** Model weights stay in 8-bit form while running, the smallest size that gives the same answers as the original models. On a computer, all five use roughly 0.6 to 0.9 GB, almost all of it graphics memory. On phones, the four bots use roughly 360 MB. Safari may still reload the page on a device that's short on memory.
+- **Memory:** Model weights stay in 8-bit form while running, the smallest size that gives the same answers as the original models. On a computer, all five use roughly 0.6 to 0.9 GB, almost all of it graphics memory. On phones, the four bots use roughly 390 MB. Safari may still reload the page on a device that's short on memory.
 - **Loading:** Model and vocabulary files are large. A first visit may take time, particularly on a slow connection. Files are cached when browser storage allows; storage can be evicted or unavailable.
 - **Browser support:** Development focuses on Macs, iPhones, and iPads. Computers use the graphics chip (WebGPU) when the browser supports it. Phones and tablets use the processor (WebAssembly). Speed and stability vary by browser and device, and testing in a simulated phone is not proof that a real one will hold up.
-- **Speed on phones:** Running on the processor keeps phones stable but makes the bigger bots slower. B and S3 can take a second or more per guess.
+- **Speed on phones:** Running on the processor keeps phones stable but makes the bigger bots slower. B and S3 can take a second or more per guess. To soften that, S3 thinks on one processor core while S0, S2 and B share another, so a full set of guesses arrives sooner than if the four took turns.
 - **Recognition:** Unfinished drawings, unusual concepts, handwriting, abstraction, and ambiguous shapes can produce incorrect guesses. Recognition is limited to the prepared vocabulary and alias groups.
 - **Sound:** Game effects stop when the page is backgrounded. On iPhone, Silent mode may mute them. The preview does not promise to bypass Silent mode without system media controls.
 - **Measurement:** This is an exploratory research interface, not a calibrated benchmark. The README animation demonstrates one successful round with sketch assistance; it is not representative performance evidence.
